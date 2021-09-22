@@ -1,12 +1,27 @@
 
-# Отток клиентов
+# Прогнозирование оттока клиентов
 
-Из «Бета-Банка» стали уходить клиенты. Каждый месяц. Немного, но заметно. Банковские маркетологи посчитали: сохранять текущих клиентов дешевле, чем привлекать новых.
+Представлены исторические данные о поведении клиентов.
 
-Нужно спрогнозировать, уйдёт клиент из банка в ближайшее время или нет. Вам предоставлены исторические данные о поведении клиентов и расторжении договоров с банком.
+## Что сделала
+Обучила модель находить клиентов, которые собираются уйти. Использовала разные техники борьбы с дисбалансом классов: меняла class_weight, увеличивала выборку положительных объектов, уменьшала выборку отрицательных. Также меняла порог классификации. Выбрала лучший вариант на основе метрики F1, также смотрела на ROC-кривую.
 
-Постройте модель с предельно большим значением F1-меры. Чтобы сдать проект успешно, нужно довести метрику до 0.59. Проверьте F1-меру на тестовой выборке самостоятельно.
+## Использованные библиотеки
+```
+import pandas as pd
+import numpy as np
 
-Дополнительно измеряйте AUC-ROC, сравнивайте её значение с F1-мерой.
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+import seaborn as sns
 
-Источник данных: https://www.kaggle.com/barelydedicated/bank-customer-churn-modeling
+import statsmodels.api as sm
+
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import f1_score, roc_auc_score, precision_recall_curve, roc_curve 
+from sklearn.utils import shuffle
+```
