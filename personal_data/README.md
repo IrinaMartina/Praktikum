@@ -5,7 +5,7 @@
 Показала, что умножение матрицы признаков на случайную обратимую матрицу не влияет на качество линейной регрессии.
 
 ## Использованные библиотеки
-```
+```python
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
